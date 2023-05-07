@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>HTML Tutorial</title>
+    </head>
+<body>
+
+<h1>Tabela</h1>
+<table border = "1">
+    <script>
+        function tablicaMnożenia() {
+            var tabela = document.getElementById("tabliczka_mnożenia");
+            tabela.innerHTML = "";
+            for (var i = 1; i <= 10; i++) {
+                var wiersz = document.createElement("tr");
+                for (var j = 1; j <=10; j++) {
+                    var komorka = document.createElement("td")
+                    komorka.textContent = i * j;
+                    wiersz.appendChild(komorka)
+                }
+                tabela.appendChild(wiersz)
+            }
+        }
+    </script>
+</table>
+<table border = "1">
+    <tr>
+        <th></th>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+        <th>4</th>
+        <th>5</th>
+        <th>6</th>
+        <th>7</th>
+        <th>8</th>
+        <th>9</th>
+        <th>10</th>
+    </tr>
+</table>
+
+</body>
+</html>
