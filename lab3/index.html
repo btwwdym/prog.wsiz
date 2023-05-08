@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+</head>
+<body>
+    <h2>Zadanie 1(a) <br> Ctrl+Shift+J</h2>
+        <script>
+            console.log("Zadanie 1")
+            const operator = prompt('Podaj operacje ( either +, -, * or / ): ');
+
+            let number1 = 20;
+            let number2 = 10;
+            // const number1 = parseFloat(prompt('Podaj pirwsza liczbe: '));
+            // const number2 = parseFloat(prompt('Podaj droga liczbe: '));
+
+            let result;
+
+            if (operator == '+') {
+                result = number1 + number2;
+            }
+            else if (operator == '-') {
+                result = number1 - number2;
+            }
+            else if (operator == '*') {
+                result = number1 * number2;
+            }
+            else if (operator == '/') {
+                result = number1 / number2;
+            }
+            else {
+                result = 'Nie poprawny operator';
+            }
+
+            console.log(`${number1} ${operator} ${number2} = ${result}`);
+
+        </script>
+
+
+    <h2>Zadanie 1(b)</h2>
+    <p id="odpow"></p>
+        <script>
+            let x = calc(10, 20)
+            document.getElementById("odpow").innerHTML = x;
+
+            function calc(a, b) {
+                const op = prompt('Operator:')
+                if (op == '+') {
+                    return 'Sumą jest: ' + (number1 + number2);
+                }
+                else if (op == '-') {
+                    return 'Różnicą jest: ' + (number1 - number2);
+                }
+                else if (op == '*') {
+                    return 'Mnożeniem jest: ' + (number1 * number2);
+                }
+                else if (op == '/') {
+                    return 'Dzieleniem jest: ' + (number1 / number2);
+                }
+                else {
+                    return 'Nie poprawny operator'
+                }
+                
+                
+            }
+
+        </script>
+
+    <h2>Zadanie 2</h2>
+    <h4>Pole jest równe</h4>
+    <h5 id="pole"></h5>
+    <p></p>
+        <script>
+            console.log("Zadanie 2")
+            let f = triangle(10, 20, 30)
+            document.getElementById("pole").innerHTML = f;
+            // const a = parseFloat('Długość a:');
+            // const b = parseFloat('Długość b:');
+            // const c = parseFloat('Długość c:');
+
+            function triangle(a, b, c) {
+                let p = (a + b + c)/2
+                return p
+            }
+            console.log("pole jest równe " + f)
+        </script>
+    <h2>Zadanie 3</h2>
+    <div id="zad3"></div>
+        <script>
+            function los(){
+                console.log("Zadanie 3")
+                let random=Math.ceil(Math.random()*10), UserInput;
+                console.log("wylosowana liczba"+random);
+                let promptText="guess:)";
+                do{
+                    UserInput=prompt(promptText,0);
+                    if(UserInput>random) promptText="wylosowana liczba jest mniejsza";
+                    else if (UserInput<random) promptText="wylosowana liczba jest wieksza"
+
+                }while(UserInput!=random);
+                alert("brawo zgadles")
+            }
+        </script>
+
+
+
+    
+</body>
+</html>
