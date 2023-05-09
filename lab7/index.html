@@ -56,11 +56,30 @@
                 <option value="Idia">India</option>
                 <option value="Belarus">Belarus</option>
         </div>
-
+        <br>
         <div class="control">
             <input type="submit" value="Submit">
         </div>
+
+        <div id="message"></div>
     </form>
+
+        <!-- ZADANIE 2 -->
+
+    <script>
+        function sprawdzPole(pole) {
+        if (pole.value.trim() === '') {
+            return false;
+        } else {
+            return true;
+            }
+        }
+
+        function passwordValidation() {
+            const passwordRegex = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/
+
+        }
+    </script>
     
 </body>
 </html>
