@@ -1,115 +1,95 @@
-<html lang="pl">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
 </head>
 <body>
+    <div></div>
+
     <script>
-            class prostokat{
-                constructor(height,width,name){
-                this.height=height;
-                this.width=width;
-                this.name=name;
 
+    //Zadanie 1
+
+        class Prostokat {
+
+            // b
+            constructor(height, width, name) {
+                this.height = height;
+                this.width = width;
+                this.name = name;
+            }
+            // c
+            oblicz_obwod() {
+                let obw = (this.height + this.width) * 2
+                console.log(`Obwodem danego prostokąta jest: ${obw} `);
+            }
+            // d
+            oblicz_polePr() {
+                let pole = this.height * this.width;
+                console.log(`Polem danego prostokąta jest: ${pole} `);
             }
 
-            licz_obwod()
-            {
-                return this.height*2+this.width*2;
-            }
-
-            licz_pole()
-            {
-                return this.height*this.width;
-            }
-            porownaj(inny_prostokat)
-            {
-                return this.licz_pole()>inny_prostokat.licz_pole() ? this : inny_prostokat;
-            }
-            zmien_imie(new_name)
-            {
-                this.name=new_name;
-            }
         }
-        const pers1=new prostokat(10,10,"pers1");
-        const pers2=new prostokat(10,20,"pers2");
-        const pers3=new prostokat(20,30,"pers3");
-        console.log("obwod: "+pers1.licz_obwod());
-        console.log("pole prostokata: "+pers2.licz_pole());
+        console.log("Zadanko 1")
+        let prOne = new Prostokat(12, 6, "Pierwszy");
+        let prTwo = new Prostokat(4, 3, "Drugi");
+        prOne.oblicz_obwod();
+        prOne.oblicz_polePr();
+        prTwo.oblicz_polePr();
 
-        console.log("Większe pole ma: "+pers2.porownaj(pers1).name);
-    
-   
-        class trojkat{
-            constructor(height,podstawa,name){
-                this.height=height;
-                this.podstawa=podstawa;
-                this.name=name;
-                
-            }
-            licz_pole()
-            {
-                return (this.podstawa*this.height)/2;
-            }
-            porownaj(inny_trojkat)
-            {
-                return this.licz_pole()>inny_trojkat.licz_pole() ? this : inny_trojkat;
-            }
+        // e
+        if (prOne.pole < prTwo.pole) {
+            console.log(`${prOne.name} ma większe pole od ${prTwo.name}`);
         }
-        const Simone=new trojkat(5,5,"Simone");
-        const Max=new trojkat(10,10,"Max");
-        const Andrii= new trojkat(30,20,"Andrii");
+        else{
+            console.log(`${prTwo.name} ma większe pole od ${prTwo.name}`);
+        }
+
+    // Zadanie 2
         
-        console.log("Pole trojkata : "+Simone.licz_pole());
-        console.log("wieksze "+Max.porownaj(Andrii).name);
-
-        class trapez
-        {
-            constructor(height,podstawa1,podstawa2,name){
-                this.height=height;
-                this.podstawa1=podstawa1;
-                this.podstawa2=podstawa2;
-                this.name=name;
+        class Trojkat {
+            constructor( wysokosc, dlPodst, nazwa) {
+                this.wysokosc = wysokosc;
+                this.dlPodst = dlPodst;
+                this.nazwa = nazwa;
             }
 
-            licz_pole()
-            {
-                return ((this.podstawa1+this.podstawa2)*this.height)/2;
+            oblicz_poleTr() {
+                let pole = (this.dlPodst * this.wysokosc) / 2;
+                console.log(`Polem danego Trojkata jest: ${pole}`);
             }
+            porownaj() {
+                if (TrOne.oblicz_poleTr > TrTwo.oblicz_poleTr) {
+                    console.log(`${TrOne.nazwa} ma większe pole od ${TrTwo.nazwa}`);
+                }
+                else{
+                    console.log(`${TrTwo.nazwa} ma większe pole od ${TrOne.nazwa}`);
+                }
 
+            }
 
         }
-            const os1=new trapez(5,10,5,"os1");
-            const os2=new trapez(10,20,10,"os2");
-            const os3=new trapez(20,10,10,"os3");
-        console.log("Pole trapezu: "+os3.licz_pole());
 
-         function porownanie(prostokat, trojkat, trapez)
-         {
-            let biggest = prostokat;
-            if(biggest.licz_pole()<trojkat.licz_pole())
-            {
-                biggest=trojkat;
-            }
-            if(biggest.licz_pole()<trapez.licz_pole())
-            {
-                biggest=trapez;
-            }
+        console.log("Zadanko 2")
+        let TrOne = new Trojkat(10, 5, "TrJeden");
+        let TrTwo = new Trojkat(10, 8, "TrDwa");
+        TrOne.oblicz_poleTr();
+        TrTwo.oblicz_poleTr();
 
-            return biggest;
+        TrOne.porownaj();
+
+    // Zadanie 3
+
+        class Trapez{
+            constructor()
         }
-       const x1=porownanie( Max, os3, Ulrich);
-       console.log("najwieksze pole z 3 figur wynosi :"+x1.licz_pole());
-       console.log("nazwa teh figury to: "+x1.name);
+
         
-       function obwod(prostokat,prostokat2)
-       {
-        return prostokat.licz_obwod()>prostokat2.licz_obwod() ? prostokat : prostokat2
-       }
-       console.log("Najwiekszy obwod z podanych 2 prostokatow ma: "+obwod(Max,Simone).name)
-       Max.zmien_imie("Filip");
-       console.log("Max zmienił imie na: "+Max.name);
+
     </script>
-
+    
 </body>
 </html>
