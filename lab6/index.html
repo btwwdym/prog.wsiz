@@ -54,10 +54,10 @@
     // Zadanie 2
         
         class Trojkat {
-            constructor( wysokosc, dlPodst, nazwa) {
+            constructor( wysokosc, dlPodst, name) {
                 this.wysokosc = wysokosc;
                 this.dlPodst = dlPodst;
-                this.nazwa = nazwa;
+                this.name = name;
             }
 
             oblicz_poleTr() {
@@ -65,10 +65,10 @@
             }
             porownajPoleTr(another) {
                 if (this.oblicz_poleTr() > another.oblicz_poleTr()) {
-                    return this.nazwa;
+                    return this.name;
                 }
                 else{
-                    return another.nazwa;
+                    return another.name;
                 }
             
             }
@@ -79,21 +79,26 @@
         let TrOne = new Trojkat(10, 5, "Trojkat 1");
         let TrTwo = new Trojkat(10, 8, "Trojkat 2");
 
-        console.log(`Pole ${TrOne.nazwa} wynosi ${TrOne.oblicz_poleTr()}`);
-        console.log(`Pole ${TrTwo.nazwa} wynosi ${TrTwo.oblicz_poleTr()}`);
+        console.log(`Pole ${TrOne.name} wynosi ${TrOne.oblicz_poleTr()}`);
+        console.log(`Pole ${TrTwo.name} wynosi ${TrTwo.oblicz_poleTr()}`);
         console.log(`Wieksze pole ma: ${TrOne.porownajPoleTr(TrTwo)}`);
 
     // Zadanie 3
 
         class Trapez{
-            constructor(wys, podst1, podst2, nwTp) {
+            constructor(wys, podst1, podst2, name) {
                 this.wys = wys;
                 this.podst1 = podst1;
                 this.podst2 = podst2;
-                this.nwTp = nwTp;
+                this.name = name;
             }
             poleTrapezu() {
                 return (this.wys * (this.podst1 + this.podst2)) / 2;
+            }
+            zmienNazwe() {
+                let newName = prompt("POdaj nowa nazwe: ")
+                this.name = newName;
+                return this.name
             }
             
         }
@@ -101,7 +106,7 @@
         console.log("Zadanie 3");
         let TrapezOne = new Trapez (5, 4, 12, "Trapez 1");
         
-        console.log(`Pole ${TrapezOne.nwTp} wynosi ${TrapezOne.poleTrapezu()}`)
+        console.log(`Pole ${TrapezOne.name} wynosi ${TrapezOne.poleTrapezu()}`)
 
 
     // Zadanie 4
@@ -143,6 +148,7 @@
 
     // Zadanie 6
 
+        console.log(TrapezOne.zmienNazwe());
         
 
         
