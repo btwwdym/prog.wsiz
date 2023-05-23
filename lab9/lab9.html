@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powtórka</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            width: 300px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 20px;
+        }
+
+        .control {
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .actions {
+            justify-content: center;
+        }
+
+        .error {
+            color: #F00
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            
+        </div>
+        <div class="control">
+            <label>Login</label>
+            <input type="text" name="login">
+            <span class="error"></span>
+        </div>
+
+        <div class="control">
+            <label>Hasło: </label>
+            <input type="password" name="password">
+            <span class="error"></span>
+        </div>
+
+        <div class="control">
+            <label>Potwórz Hasło</label>
+            <input type="password" name="confirm-password">
+            <span class="error"></span>
+        </div>
+
+        <div class="control actions">
+            <input type="submit" value="Zaloguj się">
+        </div>
+        <div class="control actions">
+            <input type="submit" value="Zarejestruj się">
+        </div>
+
+    </form>
+
+
+    <script src="scriptLab9.js">
+
+    </script>
+    
+</body>
+</html>
