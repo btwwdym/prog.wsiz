@@ -23,30 +23,31 @@
             }
             // c
             oblicz_obwod() {
-                let obw = (this.height + this.width) * 2
-                console.log(`Obwodem danego prostokąta jest: ${obw} `);
+                return (this.height + this.width) * 2
             }
             // d
             oblicz_polePr() {
-                let pole = this.height * this.width;
-                console.log(`Polem danego prostokąta jest: ${pole} `);
+                return this.height * this.width;
+            }
+
+            porownajPolePr(another) {
+                if (this.oblicz_polePr() > another.oblicz_polePr()) {
+                    return this.name
+                }
+                else {
+                    return another.name
+                }
             }
 
         }
         console.log("Zadanko 1")
-        let prOne = new Prostokat(12, 6, "Pierwszy");
-        let prTwo = new Prostokat(4, 3, "Drugi");
-        prOne.oblicz_obwod();
-        prOne.oblicz_polePr();
-        prTwo.oblicz_polePr();
+        let prOne = new Prostokat(12, 6, "Prostokat 1");
+        let prTwo = new Prostokat(4, 3, "Prostokat 2");
 
-        // e
-        if (prOne.pole < prTwo.pole) {
-            console.log(`${prOne.name} ma większe pole od ${prTwo.name}`);
-        }
-        else{
-            console.log(`${prTwo.name} ma większe pole od ${prTwo.name}`);
-        }
+        console.log(`Obwód ${prOne.name} wynosi ${prOne.oblicz_obwod()}`);
+        console.log(`Pole ${prOne.name} wynosi ${prOne.oblicz_polePr()}`);
+        console.log(`Pole ${prTwo.name} wynosi ${prTwo.oblicz_polePr()}`);
+        console.log(`Wieksze pole ma: ${prOne.porownajPolePr(prTwo)}`);
 
     // Zadanie 2
         
@@ -58,34 +59,68 @@
             }
 
             oblicz_poleTr() {
-                let pole = (this.dlPodst * this.wysokosc) / 2;
-                console.log(`Polem danego Trojkata jest: ${pole}`);
+                return (this.dlPodst * this.wysokosc) / 2;
             }
-            porownaj() {
-                if (TrOne.oblicz_poleTr > TrTwo.oblicz_poleTr) {
-                    console.log(`${TrOne.nazwa} ma większe pole od ${TrTwo.nazwa}`);
+            porownajPoleTr(another) {
+                if (this.oblicz_poleTr() > another.oblicz_poleTr()) {
+                    return this.nazwa;
                 }
                 else{
-                    console.log(`${TrTwo.nazwa} ma większe pole od ${TrOne.nazwa}`);
+                    return another.nazwa;
                 }
-
+            
             }
 
         }
 
-        console.log("Zadanko 2")
-        let TrOne = new Trojkat(10, 5, "TrJeden");
-        let TrTwo = new Trojkat(10, 8, "TrDwa");
-        TrOne.oblicz_poleTr();
-        TrTwo.oblicz_poleTr();
+        console.log("Zadanko 2");
+        let TrOne = new Trojkat(10, 5, "Trojkat 1");
+        let TrTwo = new Trojkat(10, 8, "Trojkat 2");
 
-        TrOne.porownaj();
+        console.log(`Pole ${TrOne.nazwa} wynosi ${TrOne.oblicz_poleTr()}`);
+        console.log(`Pole ${TrTwo.nazwa} wynosi ${TrTwo.oblicz_poleTr()}`);
+        console.log(`Wieksze pole ma: ${TrOne.porownajPoleTr(TrTwo)}`);
 
     // Zadanie 3
 
         class Trapez{
-            constructor()
+            constructor(wys, podst1, podst2, nwTp) {
+                this.wys = wys;
+                this.podst1 = podst1;
+                this.podst2 = podst2;
+                this.nwTp = nwTp;
+            }
+            poleTrapezu() {
+                return (this.wys * (this.podst1 + this.podst2)) / 2;
+            }
+            
         }
+
+        console.log("Zadanie 3");
+        let TrapezOne = new Trapez (5, 4, 12, "Trapez 1");
+        
+        console.log(`Pole ${TrapezOne.nwTp} wynosi ${TrapezOne.poleTrapezu()}`)
+
+
+    // Zadanie 4
+
+        function CompareTo(Pr, Tr, Tap){
+            let ThePr = Pr.oblicz_polePr();
+            let TheTr = Tr.oblicz_poleTr();
+            let TheTap = Tap. poleTrapezu();
+
+            if (ThePr > TheTr && ThePr > TheTap) {
+                return `${Pr.name} ma największe pole ${ThePr}`
+            }
+            else if (TheTr > ThePr && TheTr > TheTap) {
+                return `${Tr.name} ma największe pole ${TheTr}`
+            }
+            else {
+                return `${Tap.name} ma największe pole ${TheTap}`
+            }
+        }
+
+        console.log(CompareTo(prOne, TrOne, TrapezOne));
 
         
 
