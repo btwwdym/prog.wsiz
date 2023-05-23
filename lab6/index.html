@@ -45,6 +45,8 @@
         let prTwo = new Prostokat(4, 3, "Prostokat 2");
 
         console.log(`Obwód ${prOne.name} wynosi ${prOne.oblicz_obwod()}`);
+        console.log(`Obwód ${prTwo.name} wynosi ${prTwo.oblicz_obwod()}`);
+
         console.log(`Pole ${prOne.name} wynosi ${prOne.oblicz_polePr()}`);
         console.log(`Pole ${prTwo.name} wynosi ${prTwo.oblicz_polePr()}`);
         console.log(`Wieksze pole ma: ${prOne.porownajPolePr(prTwo)}`);
@@ -110,17 +112,38 @@
             let TheTap = Tap. poleTrapezu();
 
             if (ThePr > TheTr && ThePr > TheTap) {
-                return `${Pr.name} ma największe pole ${ThePr}`
+                return `${Pr.name} ma największe pole ${ThePr}`;
             }
             else if (TheTr > ThePr && TheTr > TheTap) {
-                return `${Tr.name} ma największe pole ${TheTr}`
+                return `${Tr.name} ma największe pole ${TheTr}`;
             }
             else {
-                return `${Tap.name} ma największe pole ${TheTap}`
+                return `${Tap.name} ma największe pole, ktore wynosi ${TheTap}`;
             }
         }
 
         console.log(CompareTo(prOne, TrOne, TrapezOne));
+
+    // Zadanie 5
+
+        function CompareProst(prost1, prost2) {
+            let obwProst1 = prost1.oblicz_obwod();
+            let obwProst2 = prost2.oblicz_obwod();
+
+            if (obwProst1 > obwProst2) {
+                return `${prost1.name} na wiekszy obwód, ktory wynosi ${obwProst1}`;
+            }
+            else {
+                return `${prost2.name} na wiekszy obwód, ktory wynosi ${obwProst2}`;
+            }
+
+        }
+
+        console.log(CompareProst(prOne, prTwo));
+
+    // Zadanie 6
+
+        
 
         
 
