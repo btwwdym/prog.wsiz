@@ -230,12 +230,17 @@ function validForm() {
     return true;
 }
 
-function setEnabled(e) {
-  
-    const checkbox = e.currentTarget;
-    
-    if(checkbox.checked == true) document.getElementById('text-' + checkbox.name).disabled = false;
-    
-    else document.getElementById('text-' + checkbox.name).disabled = true;
-  
-  }
+    function showYourself() {
+        const cAddress = document.querySelector("[name='cAddress']");
+        const c2AddressLabel = document.getElementById("c2AddressLabel");
+        const c2AddressInput = document.querySelector("[name='c2Address']");
+        
+        if (cAddress.checked == false) {
+            c2AddressLabel.style.display = "block";
+            c2AddressInput.hidden = false;
+        } else {
+            c2AddressLabel.style.display = "none";
+            c2AddressInput.hidden = true;
+    }
+}
+

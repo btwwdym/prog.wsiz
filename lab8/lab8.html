@@ -37,7 +37,6 @@
 </head>
 
 <body>
-
     <form class="form" name="form" method="post" novalidate>
         <div class="control">
             <label>Imie</label>
@@ -76,7 +75,7 @@
         </div>
         <div class="control">
             <label>Telefon: </label>
-            <input type="text" name="phone">
+            <input type="text" name="phone" id="phone-input">
             <span class="error"></span>
         </div>
         <div class="control">
@@ -86,7 +85,7 @@
         </div>
         <div class="control">
             <label>Kraj: </label>
-            <select name="country">
+            <select name="country" onchange="showYourselfSequel()">
                 <option></option>
                 <option value="Polska">Polska</option>
                 <option value="Ukraina">Ukraina</option>
@@ -95,28 +94,31 @@
             </select>
             <span class="error"></span>
         </div>
-
+        
         <div class="control">
-            <label>
-                <input type="checkbox" name="checkbox1" onclick="setEnabled(event);">Województwo:
-            </label>
-            <input type="text" id="text-checkbox1" name="name" disabled> 
+            <label>Województwo: </label>
+            <span id="voivodeship-container">
+                <input onChange="showYourselfPrequel()" type="text" name="voivodeship" disabled>
+            </span>
+            <span class="error"></span>
         </div>
 
-        <div class="control">
-            <label>
-                <input type="checkbox" name="checkbox2" onclick="setEnabled(event);"> Adres zamieszkania
-            </label>
-            <input type="text" id="text-checkbox2" name="name" disabled>
+            <span class="error"></span>
         </div>
-
         <div class="control">
-            <label>
-                <input type="checkbox" name="hidden" checked disabled >Adres korespondencyjny
-            </label>
-            
-            <input type="hidden" name= disabled>
-
+            <label>Adres zamieszkania: </label>
+            <input type="input" name="address" disabled>
+            <span class="error"></span>
+        </div>
+        <div class="control">
+            <label>Adres korespondencyjny jest taki sam jak adres zamieszkania </label>
+            <input onClick="showYourself()" type="checkbox" name="cAddress" checked>
+            <span class="error"></span>
+        </div>
+        <div class="control">
+            <label id="c2AddressLabel" style="display: none;">Adres korespondencyjny: </label>
+            <input type="input" name="c2Address" disabled hidden>
+            <span class="error"></span>
         </div>
        
 
@@ -125,11 +127,8 @@
         </div>
     </form>
 
-
-
-    <script type="text/javascript" src="lab7.js">
+    <script type="text/javascript" src="lab8.js">
     </script>
-
 </body>
 
 </html>

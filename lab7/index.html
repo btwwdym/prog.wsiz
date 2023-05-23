@@ -5,82 +5,192 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            width: 300px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 20px;
+        }
+
+        .control {
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .actions {
+            justify-content: center;
+        }
+
+        .error {
+            color: #F00
+        }
+
+    </style>
 </head>
 <body>
-    <form class="form" name="form">
+
+    <form id="registration-form" action="#" method="post">
+
         <div class="control">
-            <label>Imię:</label><br>
-            <input type="text" id="fname" name="fname" required>
+            <label>Imie:</label>
+            <input type="text" name="name" minlength="2"  required>
         </div>
 
         <div class="control">
-            <label>Nazwisko:</label><br>
-            <input type="text" id="sname" name="sname" required>
+            <label>Nazwisko:</label>
+            <input type="text" name="surname" minlength="2" required>
         </div>
 
         <div class="control">
-            <label>Email:</label><br>
-            <input type="email" id="email" name="email" required>
+            <label>Email:</label>
+            <input type="email" name="email" required>
         </div>
 
         <div class="control">
-            <label>Hasło:</label><br>
-            <input type="password" id="password" name="password" minlength="8" required>
+            <label>Hasło:</label>
+            <input type="password" name="password" minlength="8" required>
         </div>
 
         <div class="control">
             <label>Płeć:</label>
             <div>
-                <input type="radio" id="m" name="sex" value="m" required>
+                <input type="radio" id="m" name="sex" value="m" required >
                 <label for="m">M</label>
-                <input type="radio" id="k" name="sex" value="k" required>
-                <label for="k">K</label>
+                <input type="radio" name="sex" id="w" value="w" required>
+                <label for="w">W</label>
             </div>
         </div>
 
         <div class="control">
             <label>Telefon:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="number" name="phone" required>
         </div>
 
         <div class="control">
             <label>Data urodzenia:</label>
-            <input type="date" name="dateofb" id="dateofb" required>
+            <input type="date" name="birthdate" required>
         </div>
 
         <div class="control">
-            <label>Kraj:</label>
-            <select name="country">
-                <option value="Ukraine">Ukraine</option>
-                <option value="Poland">Poland</option>
-                <option value="Idia">India</option>
-                <option value="Belarus">Belarus</option>
-        </div>
-        <br>
-        <div class="control">
-            <input type="submit" value="Submit">
+            <label>Kraj</label>
+            <select name="country" required>
+                <option value=""></option>
+                <option value="Polska">Polska</option>
+                <option value="Ukraina">Ukraina</option>
+                <option value="Kanada">Kanada</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="India">India</option>
+            </select>
         </div>
 
-        <div id="message"></div>
+        <div class="control actions">
+            <input type="submit" id="submit_button" value="Zapisz">
+        </div>
+
     </form>
 
-        <!-- ZADANIE 2 -->
 
     <script>
-        function sprawdzPole(pole) {
-        if (pole.value.trim() === '') {
-            return false;
-        } else {
-            return true;
+
+        const form = document.getElementById('registration-form');
+        const submit_button = document.getElementById('submit_button');
+
+        submit_button.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        if (validateForm()) {
+            alert("Wysłano");
+        }
+        });
+
+        function validateForm() {
+            const firstNameInput = document.getElementById('name');
+            const lastNameInput = document.getElementById('surname');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const genderInput = document.getElementById('sex');
+            const phoneInput = document.getElementById('phone');
+            const birthdateInput = document.getElementById('birthdate');
+            const countryInput = document.getElementById('country');
+            let isValid = true;
+
+            if (!hasValue(firstNameInput)) {
+                displayErrorMessage(firstNameInput, 'Wpisz imię.');
+                isValid = false;
             }
+
+            else if (!hasValue(lastNameInput)) {
+                displayErrorMessage(lastNameInput, 'Wpisz nazwisko.');
+                isValid = false;
+            }
+
+            else if (!hasValue(emailInput)) {
+                displayErrorMessage(emailInput, 'Wpisz email.');
+                isValid = false;
+            } else if (!isValidEmail(emailInput.value)) {
+                displayErrorMessage(emailInput, 'błędny adres email.');
+                isValid = false;
+            }
+
+            else if (!hasValue(passwordInput)) {
+                displayErrorMessage(passwordInput, 'Podaj hasło.');
+                isValid = false;
+            } else if (!isStrongPassword(passwordInput.value)) {
+                displayErrorMessage(passwordInput, 'Hasło musi mieć co najmniej 8 znaków.');
+                isValid = false;
+            }
+
+            else if (!hasValue(genderInput)) {
+                displayErrorMessage(genderInput, 'Wybierz płeć.');
+                isValid = false;
+            }
+
+            else if (!hasValue(phoneInput)) {
+                displayErrorMessage(phoneInput, 'Podaj numer telefonu.');
+                isValid = false;
+            }
+
+            else if (!hasValue(birthdateInput)) {
+                displayErrorMessage(birthdateInput, 'Podaj datę urodzenia.');
+                isValid = false;
+            }
+
+            else if (!hasValue(countryInput)) {
+                displayErrorMessage(countryInput, 'Wybierz kraj.');
+                isValid = false;
+            }
+
+            return isValid;
         }
 
-        function passwordValidation() {
-            const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-
+        function hasValue(input) {
+            return input.value.trim() !== '';
         }
-    </script>
-    <script src="/script.js">
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isStrongPassword(password) { 
+            return password.length >= 8;
+        }
+
+        function displayErrorMessage(inputElement, message) {
+            inputElement.setCustomValidity(message);
+            inputElement.reportValidity();
+        }
 
     </script>
     
