@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website</title>
+</head>
+<body>
+    <div></div>
+
+    <script>
+
+    //Zadanie 1
+
+        class Prostokat {
+
+            // b
+            constructor(height, width, name) {
+                this.height = height;
+                this.width = width;
+                this.name = name;
+            }
+            // c
+            oblicz_obwod() {
+                let obw = (this.height + this.width) * 2
+                console.log(`Obwodem danego prostokąta jest: ${obw} `);
+            }
+            // d
+            oblicz_polePr() {
+                let pole = this.height * this.width;
+                console.log(`Polem danego prostokąta jest: ${pole} `);
+            }
+
+        }
+        console.log("Zadanko 1")
+        let prOne = new Prostokat(12, 6, "Pierwszy");
+        let prTwo = new Prostokat(4, 3, "Drugi");
+        prOne.oblicz_obwod();
+        prOne.oblicz_polePr();
+        prTwo.oblicz_polePr();
+
+        // e
+        if (prOne.pole < prTwo.pole) {
+            console.log(`${prOne.name} ma większe pole od ${prTwo.name}`);
+        }
+        else{
+            console.log(`${prTwo.name} ma większe pole od ${prTwo.name}`);
+        }
+
+    // Zadanie 2
+        
+        class Trojkat {
+            constructor( wysokosc, dlPodst, nazwa) {
+                this.wysokosc = wysokosc;
+                this.dlPodst = dlPodst;
+                this.nazwa = nazwa;
+            }
+
+            oblicz_poleTr() {
+                let pole = (this.dlPodst * this.wysokosc) / 2;
+                console.log(`Polem danego Trojkata jest: ${pole}`);
+            }
+            porownaj() {
+                if (TrOne.oblicz_poleTr > TrTwo.oblicz_poleTr) {
+                    console.log(`${TrOne.nazwa} ma większe pole od ${TrTwo.nazwa}`);
+                }
+                else{
+                    console.log(`${TrTwo.nazwa} ma większe pole od ${TrOne.nazwa}`);
+                }
+
+            }
+
+        }
+
+        console.log("Zadanko 2")
+        let TrOne = new Trojkat(10, 5, "TrJeden");
+        let TrTwo = new Trojkat(10, 8, "TrDwa");
+        TrOne.oblicz_poleTr();
+        TrTwo.oblicz_poleTr();
+
+        TrOne.porownaj();
+
+    // Zadanie 3
+
+        class Trapez{
+            constructor()
+        }
+
+        
+
+    </script>
+    
+</body>
+</html>
