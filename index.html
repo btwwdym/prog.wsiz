@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spalanie</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Obliczanie spalania</h1>
+
+    <label for="number1">Długość trasy:</label>
+    <input type="number" id="number1" name="number1"><br>
+
+    <label for="number2">Ilość paliwa:</label>
+    <input type="number" id="number2" name="number2"><br>
+
+    <button onclick="calculate()">Oblicz</button>
+
+    <h4><a href="formularz/index1.html">Formularz</a></h4>
+
+    <h4 id="wynik"></h4>
+
+
+
+    <script>
+        function calculate() {
+            var number1 = parseFloat(document.getElementById("number1").value);
+            var number2 = parseFloat(document.getElementById("number2").value);
+
+            var result = (number2/number1)*100;
+
+            document.getElementById("wynik").innerHTML = 'Srednie spalanie na 100 km wynosi: ' + result + ' litrów';
+
+
+        }
+    </script>
+</body>
+</html>

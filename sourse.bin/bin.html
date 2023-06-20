@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator</title>
+    <script type="text/javascript">
+        function calculate() {
+            var number1 = parseFloat(document.getElementById("number1").value);
+            var number2 = parseFloat(document.getElementById("number2").value);
+            var operator = document.getElementById("operator").value;
+            var result;
+
+            switch (operator) {
+                case "+":
+                    result = number1 + number2;
+                    break;
+                case "-":
+                    result = number1 - number2;
+                    break;
+                case "*":
+                    result = number1 * number2;
+                    break;
+                case "/":
+                    result = number1 / number2;
+                    break;
+                default:
+                    alert("Nieprawidłowy operator");
+                    return;
+            }
+
+            alert("Wynik: " + result);
+        }
+    </script>
+</head>
+<body>
+    <h1>Kalkulator</h1>
+
+    <label for="number1">Liczba 1:</label>
+    <input type="text" id="number1" name="number1"><br>
+
+    <label for="number2">Liczba 2:</label>
+    <input type="text" id="number2" name="number2"><br>
+
+    <label for="operator">Operator:</label>
+    <select id="operator" name="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select><br>
+
+    <button onclick="calculate()">Oblicz</button>
+</body>
+</html>

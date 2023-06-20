@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+}
+
+form {
+    width: 300px;
+    padding: 20px;
+    background-color: #88eade;
+    border-radius: 20px;
+}
+
+.control {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
