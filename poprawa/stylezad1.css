@@ -1,0 +1,15 @@
+body {
+    margin:auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    background-color: bisque;
+    font-family: 'Courier New', Courier, monospace;
+}
+button {
+    background-color: beige;
+    
+}
+h1 {
+    text-align: center;
+}

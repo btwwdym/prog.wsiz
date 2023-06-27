@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="stylezad1.css">
+</head>
+<body>
+    <h1>Kalkulator</h1>
+    <h2>Wprowadź swoje liczby:</h2>
+
+    <label for="num1">Liczba 1:</label>
+    <input type="text" id="num1" name="num1"><br>
+
+    <label for="num2">Liczba 2:</label>
+    <input type="text" id="num2" name="num2"><br>
+
+    <label for="operator">Wybierz operator:</label>
+    <select id="operator" name="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <button onclick="calculate()">Oblicz</button>
+
+    <h4 id="result"></h4>
+
+    <h4><a href="zad2/zad2.html">Formularz</a></h4>
+
+    <script>
+        function calculate() {
+            var number1 = parseFloat(document.getElementById("num1").value);
+            var number2 = parseFloat(document.getElementById("num2").value);
+            var operator = document.getElementById("operator").value;
+            var result;
+
+            switch (operator) {
+                case "+":
+                    result = number1 + number2;
+                    break;
+                case "-":
+                    result = number1 - number2;
+                    break;
+                case "*":
+                    result = number1 * number2;
+                    break;
+                case "/":
+                    result = number1 / number2;
+                    break;
+                default:
+                    alert("Nieprawidłowy operator");
+                    return;
+            }
+
+            document.getElementById("result").innerHTML = "Resultat działania wynosi: " + result.toFixed(2);
+            alert("Wynik: " + result.toFixed(2));
+        }
+    </script>
+</body>
+</html>
