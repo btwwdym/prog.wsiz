@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formularz</title>
+</head>
+<body>
+  <h1>Formularz</h1>
+  <form id="carForm" onsubmit="validateForm(event)">
+    <div>
+      <label for="brandInput">Marka:</label>
+      <input type="text" id="brandInput" required>
+    </div>
+    <div>
+      <label for="modelInput">Model:</label>
+      <input type="text" id="modelInput" required>
+    </div>
+    <div>
+      <label for="vinInput">VIN:</label>
+      <input type="text" id="vinInput" required>
+    </div>
+    <div>
+      <label for="yearInput">Rok produkcji:</label>
+      <input type="number" id="yearInput" required>
+    </div>
+    <div>
+      <label for="engineInput">Pojemność silnika:</label>
+      <input type="text" id="engineInput" required>
+    </div>
+    <div>
+      <label for="ownerInput">Właściciel:</label>
+      <input type="text" id="ownerInput" required>
+    </div>
+    <button type="submit">Prześlij</button>
+  </form>
+
+  <script>
+    function validateForm(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get form field values
+      const brand = document.getElementById('brandInput').value;
+      const model = document.getElementById('modelInput').value;
+      const vin = document.getElementById('vinInput').value;
+      const year = document.getElementById('yearInput').value;
+      const engine = document.getElementById('engineInput').value;
+      const owner = document.getElementById('ownerInput').value;
+
+      // Validation checks
+      if (brand.trim() === '') {
+        displayErrorMessage('brandInput', 'Proszę wprowadzić markę.');
+        return;
+      }
+      if (model.trim() === '') {
+        displayErrorMessage('modelInput', 'Proszę wprowadzić model.');
+        return;
+      }
+      if (vin.trim() === '') {
+        displayErrorMessage('vinInput', 'Proszę wprowadzić numer VIN.');
+        return;
+      }
+      if (year.trim() === '' || isNaN(year)) {
+        displayErrorMessage('yearInput', 'Proszę wprowadzić prawidłowy rok produkcji.');
+        return;
+      }
+      if (engine.trim() === '') {
+        displayErrorMessage('engineInput', 'Proszę wprowadzić pojemność silnika.');
+        return;
+      }
+      if (owner.trim() === '') {
+        displayErrorMessage('ownerInput', 'Proszę wprowadzić właściciela.');
+        return;
+      }
+
+      // If all validations pass, submit the form
+      document.getElementById('carForm').submit();
+    }
+
+    function displayErrorMessage(inputId, message) {
+      const errorElement = document.createElement('p');
+      errorElement.classList.add('error-message');
+      errorElement.textContent = message;
+
+      const inputElement = document.getElementById(inputId);
+      inputElement.classList.add('error');
+      inputElement.insertAdjacent();
+    }

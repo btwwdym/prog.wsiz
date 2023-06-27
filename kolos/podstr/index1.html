@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div>
+      <form id="form" name="form" >
+        <div>
+          <h1>Formularz</h1>
+        </div>
+        <div class="control">
+          <label for="marka">Marka:</label>
+          <input type="text" id="marka" name="marka">
+          <div class="error"></div>
+        </div>
+        <div class="control">
+          <label for="model">Model:</label>
+          <input type="text" id="model" name="model">
+          <div class="error"></div>
+        </div>
+        <div class="control">
+          <label for="vin">VIN:</label>
+          <input type="number" id="vin" name="vin">
+          <div class="error"></div>
+        </div>
+        <div class="control">
+          <label for="rok">Rok produkcji:</label>
+          <input type="number" id="rok" name="rok">
+          <div class="error"></div>
+        </div>
+        <div class="control">
+          <label for="pojemnosc">Pojemność silnika:</label>
+          <input type="number" name="pojemnosc" id="pojemnosc">
+          <div class="error"></div>
+        </div>
+        <div class="control">
+          <label for="owner">Właściciel(opcjonalnie):</label>
+          <input type="text" name="owner" id="owner">
+          <div class="error"></div>
+        </div>
+        <div>
+          <button type="submit">Zapisz</button>
+        </div>
+      </form>
+    </div>
+    <script src="scripts.js"></script>
+    
+</body>
+</html>
